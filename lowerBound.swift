@@ -1,16 +1,17 @@
-func solve() -> Int { // win count
+let nums: [Int] = [ 1, 2, 3, 3, 3, 4, 5, 6 ,7 ,8 ]
+
+func lowerBound(target: Int) -> Int { // index return
     var start: Int = 0
-    var end: Int = Int.max
+    var end: Int = nums.count
 
     while start < end {
         let mid: Int = (start + end) / 2
-        let winPercent: Float = Float(mid + 1) / Float(mid + 50) * 100
 
-        if winPercent < 50 {
+        if nums[mid] < target {
             start = mid + 1
         } else {
             end = mid
-        } 
+        }
     }
 
     return end
